@@ -17,31 +17,6 @@ function App() {
   return (
     <div className="container pt-5">
       <h1>Deployments</h1>
-      <form onSubmit={onSubmit}>
-        <p>
-          <label htmlFor="title">Deployment Date</label>
-          <input
-            id="date"
-            className="form-control"
-            type="text"
-            name="date"
-            value={newDeployment.date}
-            onChange={(e) => setNewDeployment({ ...newDeployment, date: e.target.value })}
-          />
-        </p>
-        <p>
-          <label htmlFor="author">Deployment Time</label>
-          <input
-            id="time"
-            className="form-control"
-            type="text"
-            name="time"
-            value={newDeployment.time}
-            onChange={(e) => setNewDeployment({ ...newDeployment, time: e.target.value })}
-          />
-        </p>
-        <button className="btn btn-primary">Add Deployment</button>
-      </form>
       <table className="table table-striped mt-5">
         <tbody>
           {deployments.map((deployment, i) => (
@@ -52,6 +27,31 @@ function App() {
           ))}
         </tbody>
       </table>
+      <form onSubmit={onSubmit}>
+        <p>
+          <label htmlFor="dateField">Deployment Date</label>
+          <input
+            id="dateField"
+            className="form-control"
+            type="text"
+            name="dateField"
+            value={newDeployment.date}
+            onChange={(e) => setNewDeployment({ ...newDeployment, date: e.target.value })}
+          />
+        </p>
+        <p>
+          <label htmlFor="timeField">Deployment Time</label>
+          <input
+            id="timeField"
+            className="form-control"
+            type="text"
+            name="timeField"
+            value={newDeployment.time}
+            onChange={(e) => setNewDeployment({ ...newDeployment, time: e.target.value })}
+          />
+        </p>
+        <button className="btn btn-primary">Add Deployment</button>
+      </form>
     </div>
   );
 }
