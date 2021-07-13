@@ -23,3 +23,8 @@ label {
     margin: .4rem 0;
 }
 
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
