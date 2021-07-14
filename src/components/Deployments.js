@@ -33,7 +33,7 @@ export default function Deployments() {
           <input
             id="dateField"
             className="form-control"
-            type="text"
+            type="date"
             name="dateField"
             value={newDeployment.date}
             onChange={(e) => setNewDeployment({ ...newDeployment, date: e.target.value })}
@@ -44,7 +44,7 @@ export default function Deployments() {
           <input
             id="timeField"
             className="form-control"
-            type="text"
+            type="time"
             name="timeField"
             value={newDeployment.time}
             onChange={(e) => setNewDeployment({ ...newDeployment, time: e.target.value })}
