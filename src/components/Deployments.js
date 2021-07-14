@@ -58,14 +58,10 @@ export default function Deployments() {
   }
 
 function formatDate(date, time) {
-    //var dateFormat = require('dateformat');
     const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
     const d = new Date(0);
     d.setUTCSeconds(utcSeconds);
-    //var mydate = dateFormat(d, 'MM/dd/yyyy');
-    //return mydate;
     return d.toLocaleDateString();
-    
 }
 
 function formatTime(date, time) {

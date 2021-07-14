@@ -10,10 +10,10 @@ test("allows users to add deployments", () => {
     userEvent.clear(dateField);
     userEvent.clear(timeField);
     
-    userEvent.type(dateField, "07/15/2021");
+    userEvent.type(dateField, "2021-07-30");
     userEvent.type(timeField, "12:30 PM");
     userEvent.click(screen.getByRole("button"));
   
-    //expect(screen.getByText(/07\/15\/2021/)).toBeVisible();
-    //expect(screen.getByText(/12:30:00 PM/)).toBeVisible();
+    expect(screen.getByText(/7\/30\/2021/)).toBeVisible();
+    expect(screen.getByText(/12:30:00 PM/)).toBeVisible();
   });
