@@ -21,8 +21,9 @@ export default function Deployments() {
         <tbody>
           {deployments.map((deployment, i) => (
             <tr key={i}>
-              <td>{deployment.date}</td>
-              <td>{deployment.time}</td>
+              <td>{i + 1}.</td>
+              <td>{formatDate(deployment.date, deployment.time)}</td>
+              <td>{formatTime(deployment.date, deployment.time)}</td>
             </tr>
           ))}
         </tbody>
@@ -55,3 +56,21 @@ export default function Deployments() {
     </div>
   );
   }
+
+function formatDate(date, time) {
+    //var dateFormat = require('dateformat');
+    const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
+    const d = new Date(0);
+    d.setUTCSeconds(utcSeconds);
+    //var mydate = dateFormat(d, 'MM/dd/yyyy');
+    //return mydate;
+    return d.toLocaleDateString();
+    
+}
+
+function formatTime(date, time) {
+    const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
+    const d = new Date(0);
+    d.setUTCSeconds(utcSeconds);
+    return d.toLocaleTimeString();
+}
