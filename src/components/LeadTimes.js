@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 let min = "";
 export default function LeadTimes() {
-  if(JSON.parse(localStorage.getItem("leadTime")) <= 1) {
+  if(JSON.parse(localStorage.getItem("leadTime")) <= 0) {
     min = "N/A";
   } else if (JSON.parse(localStorage.getItem("leadTime")) == 1) {
     min = JSON.parse(localStorage.getItem("leadTime")) + " minute";
@@ -17,13 +17,12 @@ export default function LeadTimes() {
   
   const onSubmit = (e) => {
    e.preventDefault();
-   let min = "minutes";
    if(JSON.parse(localStorage.getItem("leadTime")) == "1") {
-      min = "minute";
+     setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minute"});
    } else if (JSON.parse(localStorage.getItem("leadTime")) <= 0){
       alert ("Invalid lead time, please enter again!")
    } else {
-      setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " " + min});
+      setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minutes"});
    }
   };
 
