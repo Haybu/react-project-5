@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
 export default function RecoveryTimes() {
-    // define state for the list of books
-  const [recoveryTimes, setRecoveryTimes] = useState([]);
+    // define state for the list of recovery times. Initialized from storage if any
+
+  const storedData = JSON.parse(localStorage.getItem("storage")) !=null ? 
+                        JSON.parse(localStorage.getItem("storage")) : [];
+  const [recoveryTimes, setRecoveryTimes] = useState(storedData);
 
   // define state for the book form
   const [newRecoveryTime, setNewRecoveryTime] = useState({ date: "", time: "", duration: "" });
@@ -10,13 +13,9 @@ export default function RecoveryTimes() {
   // define the function that runs when the form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    setRecoveryTimes((recoveryTimes) => [...recoveryTimes, newRecoveryTime]);
-    setNewRecoveryTime({ date: "", time: "", duration: "" });
-    localStorage.setItem("recoveryTimesLocal", JSON.stringify(recoveryTimes));
-    recoveryTimes = JSON.parse(localStorage.getItem("leadTime"))
-    recoveryTimes.map((r, j) => {
-      alert(r.duration);
-    });
+    const newList = [...recoveryTimes, newRecoveryTime];
+    setRecoveryTimes(newList);
+    localStorage.setItem("storage", JSON.stringify(newList));  // add to storage.
   };
 
   return (
@@ -28,15 +27,17 @@ export default function RecoveryTimes() {
               <th className="bordered-cell">Start Time</th>
               <th className="bordered-cell">Duration (mintues)</th>
             </tr>
-          {recoveryTimes.map((recoveryTime, i) => (
-            <tr key={i}>
-              <td className="bordered-cell">{formatDateTime(recoveryTime.date, recoveryTime.time)}</td>
-              <td className="bordered-cell">{recoveryTime.duration}</td>
-            </tr>
-          ))}
+          {
+            recoveryTimes.map((recoveryTime, i) => (
+              <tr key={i}>
+                <td className="bordered-cell">{formatDateTime(recoveryTime.date, recoveryTime.time)}</td>
+                <td className="bordered-cell">{recoveryTime.duration}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} >
       <table className="table mt-5">
         <tbody>
             <tr>

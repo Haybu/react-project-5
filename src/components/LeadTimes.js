@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 let min = "";
+
 export default function LeadTimes() {
   if(JSON.parse(localStorage.getItem("leadTime")) <= 0) {
     min = "N/A";
