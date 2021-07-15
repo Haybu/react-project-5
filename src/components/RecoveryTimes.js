@@ -2,9 +2,7 @@ import React, { useState } from "react";
 
 export default function RecoveryTimes() {
   // define state for the list of books
-  //const [recoveryTimes, setRecoveryTimes] = useState([]);
-
-  const data = [];
+  const [recoveryTimes, setRecoveryTimes] = useState({content:{}});
 
   // define state for the book form
   const [newRecoveryTime, setNewRecoveryTime] = useState({ date: "", time: "", duration: "" });
@@ -12,9 +10,13 @@ export default function RecoveryTimes() {
   // define the function that runs when the form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    data.push(newRecoveryTime)
-    localStorage.setItem("recoveryTimes", JSON.stringify(data));
+    setRecoveryTimes({ ...recoveryTimes, newRecoveryTime});
+    localStorage.setItem("recoveryTimes", JSON.stringify(recoveryTimes));
   };
+
+//  const onLoad = () => {
+//    recoveryTimes = JSON.parse(localStorage.getItem("recoveryTimes"));
+//  }
 
   return (
     <div className="container pt-5">
@@ -25,14 +27,12 @@ export default function RecoveryTimes() {
               <th className="bordered-cell">Start Time</th>
               <th className="bordered-cell">Duration (mintues)</th>
             </tr>
-          {recoveryTimes = JSON.parse(localStorage.getItem("recoveryTimes"));
-          recoveryTimes.map( (recoveryTime, i) => (
-            <tr key={i}>
-              <td className="bordered-cell">{formatDateTime(recoveryTime.date, recoveryTime.time)}</td>
-              <td className="bordered-cell">{recoveryTime.duration}</td>
-            </tr>
-          ));
-          }
+          {recoveryTimes.map( (recoveryTime, i) => (
+              <tr key={i}>
+                <td className="bordered-cell">{formatDateTime(recoveryTime.date, recoveryTime.time)}</td>
+                <td className="bordered-cell">{recoveryTime.duration}</td>
+              </tr>
+          ))}
         </tbody>
       </table>
       <form onSubmit={onSubmit}>
