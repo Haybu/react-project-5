@@ -57,16 +57,16 @@ export default function Deployments() {
   );
   }
 
-function formatDate(date, time) {
+  function formatDate(date, time) {
     const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
     const d = new Date(0);
     d.setUTCSeconds(utcSeconds);
-    return d.toLocaleDateString();
+    return d.toLocaleDateString("en-US");
 }
 
 function formatTime(date, time) {
     const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
     const d = new Date(0);
     d.setUTCSeconds(utcSeconds);
-    return d.toLocaleTimeString();
+    return d.toLocaleTimeString("en-US");
 }
