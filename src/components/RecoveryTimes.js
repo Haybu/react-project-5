@@ -75,6 +75,7 @@ export default function RecoveryTimes() {
       </table>
         <button className="btn btn-primary">Add RecoverTime</button>
       </form>
+      <br/>
     </div>
   );
   }

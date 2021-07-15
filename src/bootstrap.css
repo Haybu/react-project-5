@@ -612,6 +612,10 @@ progress {
   color: #6c757d;
 }
 
+.div-back-color {
+  background-color: rgb(231, 231, 231);
+}
+
 .container,
 .container-fluid,
 .container-xxl,
@@ -627,6 +631,8 @@ progress {
   text-align: left;
   background-color: #D3D3D3;
 }
+
+
 
 @media (min-width: 576px) {
   .container-sm, .container {

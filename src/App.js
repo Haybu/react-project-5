@@ -8,12 +8,20 @@ function App() {
 
     <div className="row">
       <div className="col">
+      <br/>
+        <br/>
         <Deployment />
-        <br />
+        <br/>
+        <br/>
         <LeadTimes />
       </div>
+      
       <div className="col">
+        <br/>
+        <br/>
         <RecoveryTimes />
+        <br/>
+        <br/>
         <FailRates />
       </div>
     </div>
