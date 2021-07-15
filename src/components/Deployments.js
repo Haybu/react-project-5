@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export default function Deployments() {
   // define state for the list of deployments. Initialized from storage if any
-  const storedData = JSON.parse(localStorage.getItem("storage")) !=null ? 
-                        JSON.parse(localStorage.getItem("storage")) : [];
+  const storedData = JSON.parse(localStorage.getItem("deployments")) !=null ? 
+                        JSON.parse(localStorage.getItem("deployments")) : [];
   const [deployments, setDeployments] = useState(storedData);
 
   // define state for the book form
@@ -14,7 +14,7 @@ export default function Deployments() {
     e.preventDefault();
     const newList = [...deployments, newDeployment];
     setDeployments(newList);
-    localStorage.setItem("storage", JSON.stringify(newList));  // add to storage.
+    localStorage.setItem("deployments", JSON.stringify(newList));  // add to storage.
   };
 
   return (

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export default function RecoveryTimes() {
   // define state for the list of recovery times. Initialized from storage if any
-  const storedData = JSON.parse(localStorage.getItem("storage")) !=null ? 
-                        JSON.parse(localStorage.getItem("storage")) : [];
+  const storedData = JSON.parse(localStorage.getItem("recoveryTimes")) !=null ? 
+                        JSON.parse(localStorage.getItem("recoveryTimes")) : [];
   const [recoveryTimes, setRecoveryTimes] = useState(storedData);
 
   // define state for the book form
@@ -14,7 +14,7 @@ export default function RecoveryTimes() {
     e.preventDefault();
     const newList = [...recoveryTimes, newRecoveryTime];
     setRecoveryTimes(newList);
-    localStorage.setItem("storage", JSON.stringify(newList));  // add to storage.
+    localStorage.setItem("recoveryTimes", JSON.stringify(newList));  // add to storage.
   };
 
   return (
