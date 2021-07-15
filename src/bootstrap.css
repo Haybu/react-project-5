@@ -276,6 +276,18 @@ svg {
   vertical-align: middle;
 }
 
+.bordered-cell {
+  border: solid 1px #6c757d;
+  border-right: solid 1px #6c757d;
+  border-left: solid 1px #6c757d;
+  text-align: left;
+}
+
+.non-bordered-cell {
+  border: 0;
+  text-align: left;
+}
+
 table {
   caption-side: bottom;
   border-collapse: collapse;
@@ -617,7 +629,7 @@ progress {
   margin-right: auto;
   margin-left: auto;
   text-align: left;
-  
+  background-color: #F0F0F0;
 }
 
 

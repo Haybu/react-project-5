@@ -54,13 +54,12 @@ export default function Deployments() {
         <button className="btn btn-primary">Add Deployment</button>
       </form>
       <br/>
-      <br/>
     </div>
     
   );
   }
 
-  function formatDate(date, time) {
+function formatDate(date, time) {
     const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
     const d = new Date(0);
     d.setUTCSeconds(utcSeconds);

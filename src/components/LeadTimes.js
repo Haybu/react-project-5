@@ -47,7 +47,6 @@ export default function LeadTimes() {
         <button className="btn btn-primary">Update Lead Time</button>
       </form>
       <br/>
-      <br/>
     </div>
   );
 }
