@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-
+let min = "";
 export default function LeadTimes() {
-  
-  const [Leadtime, setLeadTimes] = useState({data:"N/A"});
+  if(JSON.parse(localStorage.getItem("leadTime")) <= 1) {
+    min = "N/A";
+  } else if (JSON.parse(localStorage.getItem("leadTime")) == 1) {
+    min = JSON.parse(localStorage.getItem("leadTime")) + " minute";
+  } else {
+    min = JSON.parse(localStorage.getItem("leadTime")) + " minutes";
+  }
+
+  const [Leadtime, setLeadTimes] = useState({data:min});
   
   const setDataVal = (dataVal) => {
     localStorage.setItem("leadTime", JSON.stringify(dataVal));
@@ -13,8 +20,11 @@ export default function LeadTimes() {
    let min = "minutes";
    if(JSON.parse(localStorage.getItem("leadTime")) == "1") {
       min = "minute";
-   } 
-   setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " " + min});
+   } else if (JSON.parse(localStorage.getItem("leadTime")) <= 0){
+      alert ("Invalid lead time, please enter again!")
+   } else {
+      setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " " + min});
+   }
   };
 
   return (
