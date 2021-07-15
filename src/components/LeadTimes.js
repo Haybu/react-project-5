@@ -13,17 +13,20 @@ export default function LeadTimes() {
   const [Leadtime, setLeadTimes] = useState({data:min});
   
   const setDataVal = (dataVal) => {
-    localStorage.setItem("leadTime", JSON.stringify(dataVal));
+    localStorage.setItem("leadTimeTemp", JSON.stringify(dataVal));
   }
   
   const onSubmit = (e) => {
    e.preventDefault();
-   if(JSON.parse(localStorage.getItem("leadTime")) == "1") {
+   if(JSON.parse(localStorage.getItem("leadTimeTemp")) == "1") {
+     localStorage.setItem("leadTime", JSON.stringify(JSON.parse(localStorage.getItem("leadTimeTemp"))));
      setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minute"});
-   } else if (JSON.parse(localStorage.getItem("leadTime")) <= 0){
-      alert ("Invalid lead time, please enter again!")
+     
+   } else if (JSON.parse(localStorage.getItem("leadTimeTemp")) <= 0){
+     alert ("Invalid lead time, please enter again!")
    } else {
-      setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minutes"});
+     localStorage.setItem("leadTime", JSON.stringify(JSON.parse(localStorage.getItem("leadTimeTemp"))));
+     setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minutes"});
    }
   };
 
