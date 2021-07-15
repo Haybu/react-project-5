@@ -12,6 +12,11 @@ export default function RecoveryTimes() {
     e.preventDefault();
     setRecoveryTimes((recoveryTimes) => [...recoveryTimes, newRecoveryTime]);
     setNewRecoveryTime({ date: "", time: "", duration: "" });
+    localStorage.setItem("recoveryTimesLocal", JSON.stringify(recoveryTimes));
+    recoveryTimes = JSON.parse(localStorage.getItem("leadTime"))
+    recoveryTimes.map((r, j) => {
+      alert(r.duration);
+    });
   };
 
   return (
