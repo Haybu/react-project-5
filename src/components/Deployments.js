@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
 export default function Deployments() {
-    // define state for the list of books
-  const [deployments, setDeployments] = useState([]);
+  // define state for the list of deployments. Initialized from storage if any
+  const storedData = JSON.parse(localStorage.getItem("storage")) !=null ? 
+                        JSON.parse(localStorage.getItem("storage")) : [];
+  const [deployments, setDeployments] = useState(storedData);
 
   // define state for the book form
   const [newDeployment, setNewDeployment] = useState({ date: "", time: "" });
@@ -10,8 +12,9 @@ export default function Deployments() {
   // define the function that runs when the form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    setDeployments((deployments) => [...deployments, newDeployment]);
-    setNewDeployment({ date: "", time: "" });
+    const newList = [...deployments, newDeployment];
+    setDeployments(newList);
+    localStorage.setItem("storage", JSON.stringify(newList));  // add to storage.
   };
 
   return (

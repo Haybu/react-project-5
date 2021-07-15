@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 export default function RecoveryTimes() {
-    // define state for the list of recovery times. Initialized from storage if any
-
+  // define state for the list of recovery times. Initialized from storage if any
   const storedData = JSON.parse(localStorage.getItem("storage")) !=null ? 
                         JSON.parse(localStorage.getItem("storage")) : [];
   const [recoveryTimes, setRecoveryTimes] = useState(storedData);
