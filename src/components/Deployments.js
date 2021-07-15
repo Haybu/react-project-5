@@ -15,7 +15,7 @@ export default function Deployments() {
   };
 
   return (
-    <div className="container pt-5">
+    <div className="container pt-5 div-back-color">
       <h1>Deployments</h1>
       <table className="table table-striped mt-5">
         <tbody>
@@ -53,7 +53,10 @@ export default function Deployments() {
         </p>
         <button className="btn btn-primary">Add Deployment</button>
       </form>
+      <br/>
+      <br/>
     </div>
+    
   );
   }
 

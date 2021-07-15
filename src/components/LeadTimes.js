@@ -18,11 +18,9 @@ export default function LeadTimes() {
   };
 
   return (
-    <div className="container pt-5">
+    <div className="container pt-5 div-back-color">
       <h1>Lead Time</h1>
-      
-      <label htmlFor="">From code pushed to code deployed: <b>{Leadtime.data} </b> </label>
-
+      <label htmlFor="">From code pushed to code deployed: <b>{Leadtime.data}</b></label>
       <form onSubmit={onSubmit}>
         <p>
           <label htmlFor="leadtime">Change Lead Time (in minutes)</label> 
@@ -38,6 +36,8 @@ export default function LeadTimes() {
         </p>
         <button className="btn btn-primary">Update Lead Time</button>
       </form>
+      <br/>
+      <br/>
     </div>
   );
 }
