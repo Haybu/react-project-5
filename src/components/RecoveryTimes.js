@@ -65,6 +65,7 @@ export default function RecoveryTimes() {
                     id="durationField"
                     className="form-control"
                     type="text"
+                    pattern="\d+"
                     name="durationField"
                     value={newRecoveryTime.duration}
                     onChange={(e) => setNewRecoveryTime({ ...newRecoveryTime, duration: e.target.value })}
