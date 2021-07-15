@@ -9,6 +9,7 @@ function App() {
     <div className="row">
       <div className="col">
         <Deployment />
+        <br />
         <LeadTimes />
       </div>
       <div className="col">

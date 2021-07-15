@@ -17,26 +17,25 @@ export default function RecoveryTimes() {
   return (
     <div className="container pt-5">
       <h1>Recovery Times</h1>
-      <table className="table table-striped mt-5">
+      <table className="table mt-5">
         <tbody>
             <tr>
-              <td>Start Time</td>
-              <td>Duration (mintues)</td>
+              <th className="bordered-cell">Start Time</th>
+              <th className="bordered-cell">Duration (mintues)</th>
             </tr>
           {recoveryTimes.map((recoveryTime, i) => (
             <tr key={i}>
-              <td>{formatDateTime(recoveryTime.date, recoveryTime.time)}</td>
-              <td>{recoveryTime.duration}</td>
+              <td className="bordered-cell">{formatDateTime(recoveryTime.date, recoveryTime.time)}</td>
+              <td className="bordered-cell">{recoveryTime.duration}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <form onSubmit={onSubmit}>
-      <table className="table table-striped mt-5">
+      <table className="table mt-5">
         <tbody>
             <tr>
-              <td>
-                <p>
+              <td className="non-bordered-cell">
                   <label htmlFor="dateField">Start Date</label>
                   <input
                     id="dateField"
@@ -46,10 +45,8 @@ export default function RecoveryTimes() {
                     value={newRecoveryTime.date}
                     onChange={(e) => setNewRecoveryTime({ ...newRecoveryTime, date: e.target.value })}
                   />
-                </p>
               </td>
-              <td>
-                <p>
+              <td className="non-bordered-cell">
                   <label htmlFor="timeField">Start Time</label>
                   <input
                     id="timeField"
@@ -59,13 +56,11 @@ export default function RecoveryTimes() {
                     value={newRecoveryTime.time}
                     onChange={(e) => setNewRecoveryTime({ ...newRecoveryTime, time: e.target.value })}
                   />
-                </p>
               </td>
             </tr>
             <tr>
-              <td colspan="2">
-                <p>
-                  <label htmlFor="timeField">Duration</label>
+              <td className="non-bordered-cell" colSpan="2">
+                  <label htmlFor="durationField">Duration</label>
                   <input
                     id="durationField"
                     className="form-control"
@@ -74,7 +69,6 @@ export default function RecoveryTimes() {
                     value={newRecoveryTime.duration}
                     onChange={(e) => setNewRecoveryTime({ ...newRecoveryTime, duration: e.target.value })}
                   />
-                </p>
               </td>
             </tr>
         </tbody>
