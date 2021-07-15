@@ -21,11 +21,11 @@ export default function LeadTimes() {
     <div className="container pt-5">
       <h1>Lead Time</h1>
       
-      <label htmlFor="author">From code pushed to code deployed: <b>{Leadtime.data} </b> </label>
+      <label htmlFor="">From code pushed to code deployed: <b>{Leadtime.data} </b> </label>
 
       <form onSubmit={onSubmit}>
         <p>
-          <label htmlFor="title">Change Lead Time (in minutes)</label> 
+          <label htmlFor="leadtime">Change Lead Time (in minutes)</label> 
         </p>
         <p>
           <input
