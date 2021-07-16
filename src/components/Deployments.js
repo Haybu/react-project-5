@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { deploymentFrequency } from "./utils";
+import { deploymentFrequency, formatDate, formatTime } from "./utils";
+
+import eventBus from "./EventBus";
 
 export default function Deployments() {
   // define state for the list of deployments. Initialized from storage if any
@@ -13,11 +15,17 @@ export default function Deployments() {
   // define the function that runs when the form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    if (newDeployment.date !== "" && newDeployment.time !== "") {
+    if (newDeployment.date !== "" && newDeployment.time !== "") { 
       const newList = [...deployments, newDeployment];
       setDeployments(newList);
       localStorage.setItem("deployments", JSON.stringify(newList));  // add to storage.
+      updateFailRate();
     }
+  };
+
+  const updateFailRate = () => {
+    console.log("updating fail rate");
+    eventBus.dispatch("deployments", {});
   };
 
   return (
@@ -65,17 +73,3 @@ export default function Deployments() {
     
   );
   }
-
-function formatDate(date, time) {
-    const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
-    const d = new Date(0);
-    d.setUTCSeconds(utcSeconds);
-    return d.toLocaleDateString("en-US");
-}
-
-function formatTime(date, time) {
-    const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
-    const d = new Date(0);
-    d.setUTCSeconds(utcSeconds);
-    return d.toLocaleTimeString("en-US");
-}

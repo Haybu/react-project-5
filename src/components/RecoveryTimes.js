@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { formatDateTime } from "./utils"
+import eventBus from "./EventBus";
 
 export default function RecoveryTimes() {
   // define state for the list of recovery times. Initialized from storage if any
@@ -16,7 +18,13 @@ export default function RecoveryTimes() {
       const newList = [...recoveryTimes, newRecoveryTime];
       setRecoveryTimes(newList);
       localStorage.setItem("recoveryTimes", JSON.stringify(newList));  // add to storage.
+      updateFailRate();
     }
+  };
+
+  const updateFailRate = () => {
+    console.log("updating fail rate");
+    eventBus.dispatch("recoverTimes", {});
   };
 
   return (
@@ -88,9 +96,3 @@ export default function RecoveryTimes() {
   );
   }
 
-function formatDateTime(date, time) {
-    const utcSeconds = Date.parse(`${date} ${time}`) / 1000;
-    const d = new Date(0);
-    d.setUTCSeconds(utcSeconds);
-    return d.toLocaleDateString("en-US") + " " + d.toLocaleTimeString("en-US");
-}
