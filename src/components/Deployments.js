@@ -12,9 +12,11 @@ export default function Deployments() {
   // define the function that runs when the form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    const newList = [...deployments, newDeployment];
-    setDeployments(newList);
-    localStorage.setItem("deployments", JSON.stringify(newList));  // add to storage.
+    if (newDeployment.date !== "" && newDeployment.time !== "") {
+      const newList = [...deployments, newDeployment];
+      setDeployments(newList);
+      localStorage.setItem("deployments", JSON.stringify(newList));  // add to storage.
+    }
   };
 
   return (

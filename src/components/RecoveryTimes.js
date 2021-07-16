@@ -12,9 +12,11 @@ export default function RecoveryTimes() {
   // define the function that runs when the form is submitted
   const onSubmit = (e) => {
     e.preventDefault();
-    const newList = [...recoveryTimes, newRecoveryTime];
-    setRecoveryTimes(newList);
-    localStorage.setItem("recoveryTimes", JSON.stringify(newList));  // add to storage.
+    if (newRecoveryTime.date !== "" || newRecoveryTime.time !== "" || newRecoveryTime.duration !== "") {
+      const newList = [...recoveryTimes, newRecoveryTime];
+      setRecoveryTimes(newList);
+      localStorage.setItem("recoveryTimes", JSON.stringify(newList));  // add to storage.
+    }
   };
 
   return (
