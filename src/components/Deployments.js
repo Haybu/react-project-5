@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { deploymentFrequency, getMaxNumber } from "./utils";
+import { deploymentFrequency } from "./utils";
 
 export default function Deployments() {
   // define state for the list of deployments. Initialized from storage if any

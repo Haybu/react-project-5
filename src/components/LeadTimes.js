@@ -4,7 +4,7 @@ let min = "";
 export default function LeadTimes() {
   if(JSON.parse(localStorage.getItem("leadTime")) <= 0) {
     min = "N/A";
-  } else if (JSON.parse(localStorage.getItem("leadTime")) == 1) {
+  } else if (JSON.parse(localStorage.getItem("leadTime")) === 1) {
     min = JSON.parse(localStorage.getItem("leadTime")) + " minute";
   } else {
     min = JSON.parse(localStorage.getItem("leadTime")) + " minutes";
@@ -19,7 +19,7 @@ export default function LeadTimes() {
   const onSubmit = (e) => {
    e.preventDefault();
    if (Leadtime.data !== "") {
-      if(JSON.parse(localStorage.getItem("leadTimeTemp")) == "1") {
+      if(JSON.parse(localStorage.getItem("leadTimeTemp")) === "1") {
         localStorage.setItem("leadTime", JSON.stringify(JSON.parse(localStorage.getItem("leadTimeTemp"))));
         setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minute"});
         
