@@ -18,16 +18,18 @@ export default function LeadTimes() {
   
   const onSubmit = (e) => {
    e.preventDefault();
-   if(JSON.parse(localStorage.getItem("leadTimeTemp")) == "1") {
-     localStorage.setItem("leadTime", JSON.stringify(JSON.parse(localStorage.getItem("leadTimeTemp"))));
-     setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minute"});
-     
-   } else if (JSON.parse(localStorage.getItem("leadTimeTemp")) <= 0){
-     alert ("Invalid lead time, please enter again!")
-   } else {
-     localStorage.setItem("leadTime", JSON.stringify(JSON.parse(localStorage.getItem("leadTimeTemp"))));
-     setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minutes"});
-   }
+   if (Leadtime.data !== "") {
+      if(JSON.parse(localStorage.getItem("leadTimeTemp")) == "1") {
+        localStorage.setItem("leadTime", JSON.stringify(JSON.parse(localStorage.getItem("leadTimeTemp"))));
+        setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minute"});
+        
+      } else if (JSON.parse(localStorage.getItem("leadTimeTemp")) <= 0){
+        alert ("Invalid lead time, please enter again!")
+      } else {
+        localStorage.setItem("leadTime", JSON.stringify(JSON.parse(localStorage.getItem("leadTimeTemp"))));
+        setLeadTimes({ ...Leadtime, data: JSON.parse(localStorage.getItem("leadTime")) + " minutes"});
+      }
+  }
   };
 
   return (
