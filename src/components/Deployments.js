@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { deploymentFrequency } from "./utils";
 
 export default function Deployments() {
   // define state for the list of deployments. Initialized from storage if any
@@ -22,8 +23,9 @@ export default function Deployments() {
   return (
     <div className="container pt-5 div-back-color">
       <h1>Deployments</h1>
-      <table className="table table-striped mt-5 ">
-        <tbody >
+      <div>Frequency: {deploymentFrequency(deployments)} </div>
+      <table className="table table-striped mt-5">
+        <tbody>
           {deployments.map((deployment, i) => (
             <tr key={i}>
               <td class="component-header-color ">{i + 1}.</td>
