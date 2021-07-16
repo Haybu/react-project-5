@@ -27,7 +27,7 @@ function weeksBetween(minDate, maxDate) {
 }
 
 export function calculateFailRate(deployments, recoveryTimes) {
-    if (deployments !== undefined && recoveryTimes !== undefined) {
+    if (deployments !== null && recoveryTimes !== null) {
       const numberOfIncidents = recoveryTimes.length;
       const numberOfDeployments = deployments.length;
       let rate = (numberOfIncidents * 100 / (numberOfDeployments == 0 ? 1 : numberOfDeployments));

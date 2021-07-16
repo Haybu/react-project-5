@@ -23,10 +23,7 @@ export default function Deployments() {
     }
   };
 
-  const updateFailRate = () => {
-    console.log("updating fail rate");
-    eventBus.dispatch("deployments", {});
-  };
+  const updateFailRate = () => { eventBus.dispatch("deployments", {})};
 
   return (
     <div className="container pt-5 div-back-color">
@@ -36,9 +33,9 @@ export default function Deployments() {
         <tbody>
           {deployments.map((deployment, i) => (
             <tr key={i}>
-              <td class="component-header-color ">{i + 1}.</td>
-              <td class="component-header-color ">{formatDate(deployment.date, deployment.time)}</td>
-              <td class="component-header-color ">{formatTime(deployment.date, deployment.time)}</td>
+              <td className="component-header-color ">{i + 1}.</td>
+              <td className="component-header-color ">{formatDate(deployment.date, deployment.time)}</td>
+              <td className="component-header-color ">{formatTime(deployment.date, deployment.time)}</td>
             </tr>
           ))}
         </tbody>

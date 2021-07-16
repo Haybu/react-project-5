@@ -22,16 +22,13 @@ export default function RecoveryTimes() {
     }
   };
 
-  const updateFailRate = () => {
-    console.log("updating fail rate");
-    eventBus.dispatch("recoverTimes", {});
-  };
+  const updateFailRate = () => { eventBus.dispatch("recoverTimes", {}) };
 
   return (
     <div className="container pt-5 ">
       <h1>Recovery Times</h1>
       <table className="table mt-5 ">
-        <tbody class="component-header-color ">
+        <tbody className="component-header-color ">
             <tr>
               <th className="bordered-cell">Start Time</th>
               <th className="bordered-cell">Duration (mintues)</th>
@@ -48,7 +45,7 @@ export default function RecoveryTimes() {
       </table>
       <form onSubmit={onSubmit} >
       <table className="table mt-5">
-        <tbody class="component-header-color ">
+        <tbody className="component-header-color ">
             <tr>
               <td className="non-bordered-cell component-header-color ">
                   <label htmlFor="dateField">Start Date</label>

@@ -9,8 +9,7 @@ const TITLE = 'Summer Garage Band'
 
 function App() {
   return (
-    <body>
-    <div class="site-back-color">
+    <div className="site-back-color">
     <div><br/> <img src={companyLogo} width="800" height="200"/></div>
     <div className="row component-header-color ">
        <Helmet>
@@ -35,7 +34,6 @@ function App() {
       </div>
     </div>
     </div>
-    </body>
   );
 }
 
