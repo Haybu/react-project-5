@@ -2,11 +2,20 @@ import Deployment from "./components/Deployments";
 import LeadTimes from "./components/LeadTimes";
 import RecoveryTimes from "./components/RecoveryTimes";
 import FailRates from "./components/FailRates";
+import { Helmet } from 'react-helmet'
+import companyLogo from './assets/cover.png';
+
+const TITLE = 'Summer Garage Band'
 
 function App() {
   return (
-
-    <div className="row">
+    <body>
+    <div class="site-back-color">
+    <div><br/> <img src={companyLogo} width="800" height="200"/></div>
+    <div className="row component-header-color ">
+       <Helmet>
+          <title>{ TITLE }</title>
+        </Helmet>
       <div className="col">
       <br/>
         <br/>
@@ -25,6 +34,8 @@ function App() {
         <FailRates />
       </div>
     </div>
+    </div>
+    </body>
   );
 }
 

@@ -20,13 +20,13 @@ export default function Deployments() {
   return (
     <div className="container pt-5 div-back-color">
       <h1>Deployments</h1>
-      <table className="table table-striped mt-5">
-        <tbody>
+      <table className="table table-striped mt-5 ">
+        <tbody >
           {deployments.map((deployment, i) => (
             <tr key={i}>
-              <td>{i + 1}.</td>
-              <td>{formatDate(deployment.date, deployment.time)}</td>
-              <td>{formatTime(deployment.date, deployment.time)}</td>
+              <td class="component-header-color ">{i + 1}.</td>
+              <td class="component-header-color ">{formatDate(deployment.date, deployment.time)}</td>
+              <td class="component-header-color ">{formatTime(deployment.date, deployment.time)}</td>
             </tr>
           ))}
         </tbody>

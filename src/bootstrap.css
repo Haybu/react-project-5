@@ -63,6 +63,8 @@ leftalign {
   align: left;
 }
 
+
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -612,9 +614,7 @@ progress {
   color: #6c757d;
 }
 
-.div-back-color {
-  background-color: rgb(231, 231, 231);
-}
+
 
 .container,
 .container-fluid,
@@ -630,6 +630,23 @@ progress {
   margin-left: auto;
   text-align: left;
   background-color: #F0F0F0;
+}
+/*user defined */
+.site-title {
+  text-align: center;
+  color: #550796;
+}
+
+.div-back-color {
+  background-color: rgb(231, 231, 231);
+}
+
+.site-back-color {
+  background-color: rgb(125, 201, 252);
+}
+
+.component-header-color {
+  color: #977d25;
 }
 
 
